@@ -39,7 +39,7 @@ public final class NewItemCreator {
    * @param listOfItemDetails the input arguments to validate.
    * @throws CustomException if the number of input arguments is invalid.
    */
-  private static void checkNumberOfInputArguments(final String... listOfItemDetails) {
+  static void checkNumberOfInputArguments(final String... listOfItemDetails) {
     if (!NumberOfInputValidator.isValidNumberOfInputItemDetails(listOfItemDetails)) {
       throw new CustomException("INVALID NUMBER OF INPUT ARGUMENTS");
     }
@@ -51,7 +51,7 @@ public final class NewItemCreator {
    * @param listOfItemDetails Array of strings containing item details.
    * @return An array of parsed item details.
    */
-  private static ItemDetails parseItemDetails(final String... listOfItemDetails) {
+  static ItemDetails parseItemDetails(final String... listOfItemDetails) {
 
     validateInitialArgument(listOfItemDetails);
 
