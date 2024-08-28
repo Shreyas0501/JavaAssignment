@@ -60,7 +60,6 @@ public final class OtherItemHandler {
   private static String promptUserForAnotherItem() {
     System.out.print("Do you want to enter details of any other item (y/n): ");
     final String userResponse = SCANNER.nextLine().trim();
-    System.out.println("response : " + userResponse);
     if (userResponse.isEmpty()) {
       System.out.println("No input received. Exiting...");
       return NO;
@@ -84,7 +83,7 @@ public final class OtherItemHandler {
         System.out.println(e.getMessage());
         System.out.println("REENTER Item details");
       } catch (Exception e) {
-        System.out.println("Price and Quantity must be a number " + e.getMessage());
+        System.out.println("Price must be a number and Quantity must be a whole number " + e.getMessage());
         System.out.println("REENTER Item details");
       }
     }
