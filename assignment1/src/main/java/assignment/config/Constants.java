@@ -22,7 +22,7 @@ public class Constants {
   public static final double IMPORTED_TAX_THRESHOLD_100 = 100;
   public static final double IMPORTED_TAX_THRESHOLD_200 = 200;
   public static final double ADDITIONAL_MANUFACTURED_TAX_RATE = 0.02;
-  public static final Scanner SCANNER = new Scanner(System.in);
+  public static Scanner SCANNER = new Scanner(System.in);
   public static final Set<String> RESTRICTED_NAMES =
       new HashSet<>(Set.of("name", "type", "price", "quantity"));
 }
