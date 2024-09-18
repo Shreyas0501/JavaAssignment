@@ -11,6 +11,7 @@ public final class Menu {
   private Menu() {
     throw new UnsupportedOperationException(UTILITY_CLASS_MESSAGE);
   }
+
   /**
    * Displays the menu options to the user.
    */
@@ -37,7 +38,7 @@ public final class Menu {
         return Integer.parseInt(SCANNER.nextLine());
       } catch (Exception e) {
         System.out.println("Option must be a number \n"
-        + "Re enter an option: ");
+            + "Re enter an option: ");
       }
     }
   }

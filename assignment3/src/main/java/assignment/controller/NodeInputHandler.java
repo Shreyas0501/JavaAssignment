@@ -1,19 +1,22 @@
 package assignment.controller;
 
+import static assignment.config.Constants.EXIT_CONDITION;
+import static assignment.config.Constants.SCANNER;
+import static assignment.config.Constants.UTILITY_CLASS_MESSAGE;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
-import static assignment.config.Constants.*;
 
 /**
  * Provides methods for reading input related to nodes from the user,
  * including node IDs, node names, and additional information.
  */
-public final class NodeInputHandler{
+public final class NodeInputHandler {
 
   private NodeInputHandler() {
     throw new UnsupportedOperationException(UTILITY_CLASS_MESSAGE);
   }
+
   /**
    * Prompts the user to enter a node ID and validates the input.
    * @return the node ID entered by the user.
@@ -51,8 +54,8 @@ public final class NodeInputHandler{
     String key;
     String value;
 
-    System.out.println("Enter additional information (key-value pairs). " +
-        "Type 'exit' when finished.");
+    System.out.println("Enter additional information (key-value pairs). "
+        + "Type 'exit' when finished.");
 
     while (true) {
       System.out.print("Enter key, (or exit to finish): ");
@@ -71,6 +74,5 @@ public final class NodeInputHandler{
 
     return additionalInfo;
   }
-
 
 }

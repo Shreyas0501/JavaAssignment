@@ -1,9 +1,9 @@
 package assignment.controller;
 
-import assignment.model.Node;
-
 import static assignment.config.Constants.NODE_ID_TO_NODE_MAP;
 import static assignment.config.Constants.UTILITY_CLASS_MESSAGE;
+
+import assignment.model.Node;
 
 /**
  * Handles the deletion of dependencies between nodes in the tree.
@@ -13,6 +13,7 @@ public final class DependencyDeleter {
   private DependencyDeleter() {
     throw new UnsupportedOperationException(UTILITY_CLASS_MESSAGE);
   }
+
   /**
    * Prompts the user to enter parent and child node IDs
    * and deletes the dependency between them.
@@ -41,12 +42,10 @@ public final class DependencyDeleter {
 
   private static boolean isParentAndChildExist(final String parentId, final String childId) {
     if (!NODE_ID_TO_NODE_MAP.containsKey(parentId)) {
-      System.out.println("\nParent node ID " + parentId + " doesn't exist!");
-      return false;
+      throw new CustomException("\nParent node ID " + parentId + " doesn't exist!");
     }
     if (!NODE_ID_TO_NODE_MAP.containsKey(childId)) {
-      System.out.println("\nChild node ID " + childId + " doesn't exist!");
-      return false;
+      throw new CustomException("\nChild node ID " + childId + " doesn't exist!");
     }
     return true;
   }

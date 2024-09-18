@@ -1,5 +1,9 @@
 package assignment.view;
 
+import static assignment.config.Constants.NODE_ID_TO_NODE_MAP;
+import static assignment.config.Constants.UTILITY_CLASS_MESSAGE;
+
+import assignment.controller.CustomException;
 import assignment.controller.NodeInputHandler;
 import assignment.model.Node;
 
@@ -7,9 +11,6 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
-
-import static assignment.config.Constants.NODE_ID_TO_NODE_MAP;
-import static assignment.config.Constants.UTILITY_CLASS_MESSAGE;
 
 /**
  * Provides methods to display information about nodes,
@@ -32,8 +33,7 @@ public final class DisplayNode {
 
     final Node currentNode = NODE_ID_TO_NODE_MAP.get(nodeId);
     if (currentNode.getParent() == null || currentNode.getParent().isEmpty()) {
-      System.out.println("No parent node!");
-      return;
+      throw new CustomException("No parent node!");
     }
 
     System.out.println("Parent node: ");
@@ -53,8 +53,7 @@ public final class DisplayNode {
 
     final Node currentNode = NODE_ID_TO_NODE_MAP.get(nodeId);
     if (currentNode.getChildren() == null || currentNode.getChildren().isEmpty()) {
-      System.out.println("No children node!");
-      return;
+      throw new CustomException("No children node!");
     }
 
     System.out.println("Children node: ");
@@ -149,12 +148,12 @@ public final class DisplayNode {
     System.out.println("\nNODE ID    : " + node.getId());
     System.out.println("NODE NAME  : " + node.getName());
     System.out.print("CHILDREN'S : ");
-    for(Node childNode : node.getChildren()) {
+    for (Node childNode : node.getChildren()) {
       System.out.print(childNode.getId() + ", ");
     }
 
     System.out.print("\nPARENT'S : ");
-    for(Node parentNode : node.getParent()) {
+    for (Node parentNode : node.getParent()) {
       System.out.print(parentNode.getId() + ", ");
     }
   }
